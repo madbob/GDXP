@@ -22,7 +22,7 @@
         ordini aperti per il singolo fornitore
         Figli: taxCode, vatNumber, name, address, contacts, note, products, orders, extraFields
     -->
-    <!ELEMENT supplier (taxCode, vatNumber, name, address, contacts, note, products, orders, extraFields?)>
+    <!ELEMENT supplier (taxCode, vatNumber, name, address, contacts, note?, products, orders, extraFields?)>
         <!--
             Tag: taxCode
             Descrizione: Codice fiscale
