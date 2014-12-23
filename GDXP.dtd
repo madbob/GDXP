@@ -37,16 +37,16 @@
 
         <!--
             Tag: name
-            Descrizione: Nome/Ragione sociale del fornitore 
+            Descrizione: Nome/Ragione sociale del fornitore
         -->
         <!ELEMENT name (#CDATA)>
 
         <!--
             Tag: address
             Descrizione: indirizzo del fornitore
-            Figli: street, locality, zipCode, country
+            Figli: street, locality, zipCode, country, extraFields
         -->
-        <!ELEMENT address (street, locality, zipCode, country)>
+        <!ELEMENT address (street, locality, zipCode, country, extraFields?)>
             <!--
                 Tag: street
                 Descrizione: via e numero civico
@@ -71,6 +71,22 @@
             -->
             <!ELEMENT country (#CDATA)>
 
+            <!--
+                Tag: extraFields
+                Descrizione: lista dei campi non direttamente previsti dal protocollo
+                Figli: extraField
+            -->
+            <!ELEMENT extraFields (extraField)>
+
+                <!--
+                    Tag: extraField
+                    Descrizione: campo non previsto dal protocollo
+                    Attributi:
+                     - name: il nome del campo
+                -->
+                <!ELEMENT extraField (#CDATA)>
+                    <!ATTLIST extraField name CDATA #REQUIRED>
+
         <!--
             Tag: contacts
             Descrizione: contiene la lista dei contatti per quel fornitore
@@ -79,7 +95,7 @@
         <!ELEMENT contacts (contact*)>
 
             <!--
-                Tag: contact 
+                Tag: contact
                 Descrizione: contatto/riferimento del fornitore
                 Figli: primary, extraContact
             -->
@@ -211,7 +227,7 @@
                     Tag: orderInfo
                     Descrizione: informazioni relative al prodotto relative agli ordini
                     Figli: packageQty, minQty, mulQty, maxQty, umPrice, shippingCost
-                -->     
+                -->
                 <!ELEMENT orderInfo (packageQty?, minQty?, mulQty?, maxQty?, umPrice, shippingCost?)>
                     <!--
                         Tag: packageQty
@@ -276,7 +292,7 @@
                     Tag: extraFields
                     Descrizione: lista dei campi non direttamente previsti dal protocollo
                     Figli: extraField
-                -->     
+                -->
                 <!ELEMENT extraFields (extraField)>
 
                     <!--
@@ -323,7 +339,7 @@
                     Tag: extraFields
                     Descrizione: lista dei campi non direttamente previsti dal protocollo
                     Figli: extraField
-                -->     
+                -->
                 <!ELEMENT extraFields (extraField)>
 
                     <!--
