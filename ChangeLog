@@ -1,0 +1,11 @@
+Changelog
+
+0.2
+	gran parte degli attributi sono stati mutati in elementi
+	soppressi i campi packagePrice e discounts
+	resi facoltativi i campi faxNumber, webSite, sku, packageQty, minQty, mulQty, maxQty, shippingCost, deliveryDate
+0.1.1
+	aggiunto elemento "extraField" sia in "supplier" che in "order"
+	rinominato "accountancyVATNumber" in "vatNumber"
+0.1
+	versione iniziale

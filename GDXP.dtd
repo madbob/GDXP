@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Gas Data eXchange Protocol
+-->
+<!--
+    Tag: gdxp
+    Descrizione: root
+    Attributi:
+        - protocolVersion: versione del protocollo
+        - creationDate: timestamp di creazione del file con precisione fino al secondo con formato YYYYMMDDHHmmss
+        - applicationSignature: firma dell'applicazione che ha creato il file
+    Figli: supplier
+-->
+<!ELEMENT gdxp supplier*>
+    <!ATTLIST gdxp protocolVersion CDATA #REQUIRED>
+    <!ATTLIST gdxp creationDate CDATA #REQUIRED>
+    <!ATTLIST gdxp applicationSignature CDATA #REQUIRED>
+
+    <!--
+        Tag: supplier
+        Descrizione: contiene i dati di anagrafica, prodotti/listini e
+        ordini aperti per il singolo fornitore
+        Figli: taxCode, vatNumber, name, address, contacts, note, products, orders, extraFields
+    -->
+    <!ELEMENT supplier (taxCode, vatNumber, name, address, contacts, note, products, orders, extraFields?)>
+        <!--
+            Tag: taxCode
+            Descrizione: Codice fiscale
+        -->
+        <!ELEMENT taxCode (#CDATA)>
+
+        <!--
+            Tag: vatNumber
+            Descrizione: Partita IVA
+        -->
+        <!ELEMENT vatNumber (#CDATA)>
+
+        <!--
+            Tag: name
+            Descrizione: Nome/Ragione sociale del fornitore 
+        -->
+        <!ELEMENT name (#CDATA)>
+
+        <!--
+            Tag: address
+            Descrizione: indirizzo del fornitore
+            Figli: street, locality, zipCode, country
+        -->
+        <!ELEMENT address (street, locality, zipCode, country)>
+            <!--
+                Tag: street
+                Descrizione: via e numero civico
+            -->
+            <!ELEMENT street (#CDATA)>
+
+            <!--
+                Tag: locality
+                Descrizione: località/paese/città
+            -->
+            <!ELEMENT locality (#CDATA)>
+
+            <!--
+                Tag: zipCode
+                Descrizione: codice postale
+            -->
+            <!ELEMENT zipCode (#CDATA)>
+
+            <!--
+                Tag: country
+                Descrizione: nazione
+            -->
+            <!ELEMENT country (#CDATA)>
+
+        <!--
+            Tag: contacts
+            Descrizione: contiene la lista dei contatti per quel fornitore
+            Figli: contact
+        -->
+        <!ELEMENT contacts (contact*)>
+
+            <!--
+                Tag: contact 
+                Descrizione: contatto/riferimento del fornitore
+                Figli: primary, extraContact
+            -->
+            <!ELEMENT contact (primary, extraContact*)>
+
+            <!--
+                Tag: primary
+                Descrizione: contatto principale direttamente legato alla
+                ragione sociale del fornitore
+                Figli: phoneNumber, faxNumber, emailAddress, webSite
+            -->
+            <!ELEMENT primary (phoneNumber, faxNumber?, emailAddress, webSite?)>
+                <!--
+                    Tag: phoneNumber
+                    Descrizione: numero telefonico
+                -->
+                <!ELEMENT phoneNumber (#CDATA)>
+
+                <!--
+                    Tag: faxNumber
+                    Descrizione: numero di fax
+                -->
+                <!ELEMENT faxNumber (#CDATA)>
+
+                <!--
+                    Tag: emailAddress
+                    Descrizione: indirizzo di posta elettronica
+                -->
+                <!ELEMENT emailAddress (#CDATA)>
+
+                <!--
+                    Tag: webSite
+                    Descrizione: indirizzo del sito web
+                -->
+                <!ELEMENT webSite (#CDATA)>
+
+            <!--
+                Tag: extraContact
+                Descrizione: contatto per un riferimento del fornitore
+                Figli: firstName, lastName, phoneNumber, mobileNumber, faxNumber, emailAddress
+            -->
+            <!ELEMENT extraContact (firstName, lastName, phoneNumber, mobileNumber, faxNumber?, emailAddress)>
+                <!--
+                    Tag: firstName
+                    Descrizione: nome
+                -->
+                <!ELEMENT firstName (#CDATA)>
+
+                <!--
+                    Tag: lastName
+                    Descrizione: cognome
+                -->
+                <!ELEMENT lastName (#CDATA)>
+
+                <!--
+                    Tag: phoneNumber
+                    Descrizione: numero del telefono fisso
+                -->
+                <!ELEMENT phoneNumber (#CDATA)>
+
+                <!--
+                    Tag: mobileNumber
+                    Descrizione: numero del telefono cellulare
+                -->
+                <!ELEMENT mobileNumber (#CDATA)>
+
+                <!--
+                    Tag: faxNumber
+                    Descrizione: numero di fax
+                -->
+                <!ELEMENT faxNumber (#CDATA)>
+
+                <!--
+                    Tag: emailAddress
+                    Descrizione: indirizzo di posta elettronica
+                -->
+                <!ELEMENT emailAddress (#CDATA)>
+
+        <!--
+            Tag: note
+            Descrizione: Commenti e note (testo libero) relative al fornitore
+        -->
+        <!ELEMENT note (#CDATA)>
+
+        <!--
+            Tag: products
+            Descrizione: lista dei prodotti/listino del fornitore
+            Figli: product
+        -->
+        <!ELEMENT products (product*)>
+
+            <!--
+                Tag: product
+                Descrizione: singolo prodotto
+                Figli: sku, name, category, um, description, orderInfo, variants, extraFields
+            -->
+            <!ELEMENT product (sku?, name, category, um, description, orderInfo, variants?, extraFields?)>
+                <!--
+                    Tag: sku
+                    Descrizione: codice prodotto del fornitore
+                -->
+                <!ELEMENT sku (#CDATA)>
+
+                <!--
+                    Tag: name
+                    Descrizione: descrizione del prodotto
+                -->
+                <!ELEMENT name (#CDATA)>
+
+                <!--
+                    Tag: category
+                    Descrizione: categoria di cui fa parte il prodotto
+                -->
+                <!ELEMENT category (#CDATA)>
+
+                <!--
+                    Tag: um
+                    Descrizione: unità di misura
+                -->
+                <!ELEMENT um (#CDATA)>
+
+                <!--
+                    Tag: description
+                    Descrizione: descrizione estesa del prodotto
+                -->
+                <!ELEMENT description (#CDATA)>
+
+                <!--
+                    Tag: orderInfo
+                    Descrizione: informazioni relative al prodotto relative agli ordini
+                    Figli: packageQty, minQty, mulQty, maxQty, umPrice, shippingCost
+                -->     
+                <!ELEMENT orderInfo (packageQty?, minQty?, mulQty?, maxQty?, umPrice, shippingCost?)>
+                    <!--
+                        Tag: packageQty
+                        Descrizione: quantità per confezione
+                    -->
+                    <!ELEMENT packageQty (#CDATA)>
+
+                    <!--
+                        Tag: minQty
+                        Descrizione: quantità minima ordinabile
+                    -->
+                    <!ELEMENT minQty (#CDATA)>
+
+                    <!--
+                        Tag: mulQty
+                        Descrizione: quantità multipla di ordine
+                    -->
+                    <!ELEMENT mulQty (#CDATA)>
+
+                    <!--
+                        Tag: maxQty
+                        Descrizione: quantità massima totale ordinabile
+                    -->
+                    <!ELEMENT maxQty (#CDATA)>
+
+                    <!--
+                        Tag: umPrice
+                        Descrizione: prezzo per unità di misura
+                    -->
+                    <!ELEMENT umPrice (#CDATA)>
+
+                    <!--
+                        Tag: shippingCost
+                        Descrizione: costo di trasporto per unità di misura
+                    -->
+                    <!ELEMENT shippingCost (#CDATA)>
+
+                <!--
+                    Tag: variants
+                    Descrizione: lista delle varianti
+                    Figli: variant
+                -->
+                <!ELEMENT variants (variant)>
+
+                    <!--
+                        Tag: variant
+                        Descrizione: rapprensenta la singola variante per il prodorro
+                        Attributi:
+                         - name: nome della variante
+                        Figli: value
+                    -->
+                    <!ELEMENT variant (value+)>
+                        <!ATTLIST variant name CDATA #REQUIRED>
+
+                        <!--
+                            Tag: value
+                            Descrizione: singolo valore che può assumere la variante
+                        -->
+                        <!ELEMENT value (#CDATA)>
+
+                <!--
+                    Tag: extraFields
+                    Descrizione: lista dei campi non direttamente previsti dal protocollo
+                    Figli: extraField
+                -->     
+                <!ELEMENT extraFields (extraField)>
+
+                    <!--
+                        Tag: extraField
+                        Descrizione: campo non previsto dal protocollo
+                        Attributi:
+                         - name: il nome del campo
+                    -->
+                    <!ELEMENT extraField (#CDATA)>
+                        <!ATTLIST extraField name CDATA #REQUIRED>
+
+        <!--
+            Tag: orders
+            Descrizione: lista degli ordini
+            Figli: order
+        -->
+        <!ELEMENT orders (order*)>
+
+            <!--
+                Tag: order
+                Descrizione: dati relativi al singolo ordine
+                Figli: openDate, closeDate, deliveryDate, extraFields
+            -->
+            <!ELEMENT order (openDate, closeDate, deliveryDate?, extraFields?)>
+                <!--
+                    Tag: openDate
+                    Descrizione: data di apertura dell'ordine
+                -->
+                <!ELEMENT openDate (#CDATA)>
+
+                <!--
+                    Tag: closeDate
+                    Descrizione: data di chiusura dell'ordine
+                -->
+                <!ELEMENT closeDate (#CDATA)>
+
+                <!--
+                    Tag: deliveryDate
+                    Descrizione: data prevista di consegna
+                -->
+                <!ELEMENT deliveryDate (#CDATA)>
+
+                <!--
+                    Tag: extraFields
+                    Descrizione: lista dei campi non direttamente previsti dal protocollo
+                    Figli: extraField
+                -->     
+                <!ELEMENT extraFields (extraField)>
+
+                    <!--
+                        Tag: extraField
+                        Descrizione: campo non previsto dal protocollo
+                        Attributi:
+                         - name: il nome del campo
+                    -->
+                    <!ELEMENT extraField (#CDATA)>
+                        <!ATTLIST extraField name CDATA #REQUIRED>
+
+        <!--
+            Tag: extraFields
+            Descrizione: lista dei campi non direttamente previsti dal protocollo
+            Figli: extraField
+        -->
+        <!ELEMENT extraFields (extraField)>
+
+            <!--
+                Tag: extraField
+                Descrizione: campo non previsto dal protocollo
+                Attributi:
+                 - name: il nome del campo
+            -->
+            <!ELEMENT extraField (#CDATA)>
+                <!ATTLIST extraField name CDATA #REQUIRED>
