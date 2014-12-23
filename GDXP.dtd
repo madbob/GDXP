@@ -21,8 +21,10 @@
         Descrizione: contiene i dati di anagrafica, prodotti/listini e
         ordini aperti per il singolo fornitore
         Figli: taxCode, vatNumber, name, address, contacts, note, products, orders, extraFields
+        
+        Nota bene: taxCode e vatNumber sono entrambi facoltativi, ma almeno uno dovrebbe sempre essere valorizzato
     -->
-    <!ELEMENT supplier (taxCode, vatNumber, name, address, contacts, note?, products, orders, extraFields?)>
+    <!ELEMENT supplier (taxCode?, vatNumber?, name, address, contacts, note?, products, orders, extraFields?)>
         <!--
             Tag: taxCode
             Descrizione: Codice fiscale
