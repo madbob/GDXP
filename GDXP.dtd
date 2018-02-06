@@ -234,9 +234,9 @@
                 <!--
                     Tag: orderInfo
                     Descrizione: informazioni relative al prodotto relative agli ordini
-                    Figli: packageQty, minQty, mulQty, maxQty, umPrice, shippingCost
+                    Figli: packageQty, minQty, mulQty, maxQty, umPrice, vatRate, shippingCost
                 -->
-                <!ELEMENT orderInfo (packageQty?, minQty?, mulQty?, maxQty?, umPrice, shippingCost?)>
+                <!ELEMENT orderInfo (packageQty?, minQty?, mulQty?, maxQty?, umPrice, vatRate?, shippingCost?)>
                     <!--
                         Tag: packageQty
                         Descrizione: quantità per confezione
@@ -266,6 +266,12 @@
                         Descrizione: prezzo per unità di misura
                     -->
                     <!ELEMENT umPrice (#CDATA)>
+
+                    <!--
+                        Tag: vatRate
+                        Descrizione: IVA applicata, espressa in percentuale sul prezzo unitario (umPrice)
+                    -->
+                    <!ELEMENT vatRate (#CDATA)>
 
                     <!--
                         Tag: shippingCost
