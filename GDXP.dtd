@@ -192,7 +192,7 @@
             <!--
                 Tag: product
                 Descrizione: singolo prodotto
-                Figli: sku, name, category, um, description, orderInfo, variants, extraFields
+                Figli: sku, name, category, um, description, active, orderInfo, variants, extraFields
             -->
             <!ELEMENT product (sku?, name, category, um, description, active?, orderInfo, variants?, extraFields?)>
                 <!--
