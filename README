@@ -1,9 +1,0 @@
-# GAS Data eXchange Protocol
-
-Il GDXP (GAS Data eXchange Protocol) intende essere un formato dati aperto e documentato, destinato ad essere usato per condividere informazioni su fornitori e ordini tra diversi Gruppi di Acquisto Solidale.
-Nato per iniziativa di GAS Torino nel 2011, e reso noto a tutti gli sviluppatori di gestionali per GAS.
-
-### Implementazioni
-
-Versione 0.2
-- GASdotto 3.0

@@ -1,5 +1,9 @@
 Changelog
 
+1.0
+	migrato a JSON e revisionata gerarchia delle informazioni
+	aggiunti attributi relativi al soggetto che genera il file (subject)
+
 0.2
 	gran parte degli attributi sono stati mutati in elementi
 	soppressi i campi packagePrice e discounts

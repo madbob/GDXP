@@ -1,0 +1,179 @@
+{
+    "type": "object",
+    "properties": {
+        "protocolVersion": {
+            "type": "number"
+        },
+        "creationDate": {
+            "type": "string",
+            "format": "date"
+        },
+        "applicationSignature": {
+            "type": "string"
+        },
+        "subject": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "global_id": {
+                    "type": "string"
+                },
+                "taxCode": {
+                    "type": "string"
+                },
+                "vatNumber": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "object",
+                    "properties": {
+                        "street": {
+                            "type": "string"
+                        },
+                        "locality": {
+                            "type": "string"
+                        },
+                        "zipCode": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "contacts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subject_contacts"
+                    }
+                }
+            },
+            "required":["name"]
+        },
+
+        "blocks": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/suppliers"
+            }
+        }
+    },
+    "required":["protocolVersion", "creationDate", "applicationSignature", "subject", "blocks"],
+
+    "definitions": {
+        "subject_contacts": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["phoneNumber", "faxNumber", "mobileNumber", "emailAddress", "webSite"]
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "suppliers": {
+            "type": "object",
+            "properties": {
+                "supplier": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "vatNumber": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "object",
+                            "properties": {
+                                "street": {
+                                    "type": "string"
+                                },
+                                "locality": {
+                                    "type": "string"
+                                },
+                                "zipCode": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "contacts": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/subject_contacts"
+                            }
+                        },
+                        "products": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/supplier_products"
+                            }
+                        }
+                    },
+                    "required":["name", "vatNumber", "products"]
+                }
+            }
+        },
+        "supplier_products": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "um": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "sku": {
+                    "type": "string"
+                },
+                "orderInfo": {
+                    "type": "object",
+                    "properties": {
+                        "packageQty": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "minQty": {
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "mulQty": {
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "availableQty": {
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "maxQty": {
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "umPrice": {
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "vatRate": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "shippingCost": {
+                            "type": "number",
+                            "minimum": 0
+                        }
+                    },
+                    "required":["umPrice"]
+                }
+            },
+            "required":["name", "um", "orderInfo"]
+        }
+    }
+}
