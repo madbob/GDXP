@@ -2,7 +2,11 @@
 
 Il formato GDXP è formalizzato nel file GDXP-1.json, che contiene il [JSON Schema](https://json-schema.org/) su cui è possibile validare i propri files.
 
-Di seguito un esempio con le relative indicazioni sul contenuto ed il formato di ogni attributo. Nota bene: il documento qui sotto non è un documento JSON valido, in quanto il formato JSON non contempla i commenti.
+Di seguito qualche esempio con le relative indicazioni sul contenuto ed il formato di ogni attributo. Nota bene: i documenti qui sotto non sono documenti JSON validi, in quanto il formato JSON non contempla i commenti.
+
+## Caso 1: Listino Fornitore
+
+Da utilizzare per scambiare listini tra diverse applicazioni.
 
 ```
 {
