@@ -109,6 +109,24 @@
                             "items": {
                                 "$ref": "#/definitions/supplier_products"
                             }
+                        },
+                        "order": {
+                            "type": "object",
+                            "properties": {
+                                "phase": {
+                                    "type": "string",
+                                    "enum": ["preorder", "order", "booking"]
+                                },
+                                "openDate": {
+                                    "type": "date"
+                                },
+                                "closeDate": {
+                                    "type": "date"
+                                },
+                                "deliveryDate": {
+                                    "type": "date"
+                                }
+                            }
                         }
                     },
                     "required":["name", "vatNumber", "products"]
@@ -171,6 +189,14 @@
                         }
                     },
                     "required":["umPrice"]
+                },
+                "bookingInfo": {
+                    "type": "object",
+                    "properties": {
+                        "totalQty": {
+                            "type": "number"
+                        }
+                    }
                 }
             },
             "required":["name", "um", "orderInfo"]
