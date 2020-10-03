@@ -5,3 +5,5 @@ Il GDXP (GAS Data eXchange Protocol) è un formato dati aperto destinato ad esse
 La prima generazione (v0) è nata su iniziativa del GAS Torino ed è serializzata in XML. Se ne sconsiglia l'uso per nuovi progetti.
 
 La seconda generazione (v1) è stata evoluta su iniziativa del progetto SISO (Strumenti per l'Innovazione Solidale Organizzata) ed è serializzata in JSON. Si consiglia di fare riferimento a questa versione, ed alla documentazione che si trova nella relativa cartella.
+
+Per informazioni sul repository centrale dei listini, con cui i gestionali possono interfacciarsi direttamente via API per attingere e aggiornare i listini, si veda il sito hub.economiasolidale.net.
